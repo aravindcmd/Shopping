@@ -157,5 +157,14 @@ const getTopProducts =asyncHandler(async(req,res)=>{
     res.json(products)
    
  
- })
-export {getProducts,getProductById, deleteProduct, createProduct,updateProduct,createProductReview,getTopProducts}
+
+})
+
+//desc GET filtered product by category
+//route GET api/products/category
+//accses Public
+const getFilterProduct = asyncHandler(async(req,res)=>{
+    const products = await Product.find({category:'Food'}).exec()
+    res.json(products)
+})
+export {getProducts,getProductById, deleteProduct, createProduct,updateProduct,createProductReview,getTopProducts,getFilterProduct}
